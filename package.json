@@ -1,0 +1,23 @@
+{
+  "name": "data-flow-learning",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "xwj",
+  "license": "MIT",
+  "scripts": {
+    "start-dev": "parcel index.html"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0-0",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "babel-preset-env": "^1.7.0",
+    "parcel-bundler": "^1.10.3"
+  },
+  "dependencies": {
+    "@babel/preset-env": "^7.1.0",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0",
+    "react-redux": "^5.1.0",
+    "redux": "^4.0.1"
+  }
+}
