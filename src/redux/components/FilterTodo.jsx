@@ -3,7 +3,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import classnames from 'classnames';
 import {setFilterType} from '../actions';
-import CONST from '../constants';
+import CONST from '../../constants';
 
 class FilterTodo extends React.Component {
 

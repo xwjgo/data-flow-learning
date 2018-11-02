@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {toggleTodo} from '../actions';
-import CONST from '../constants';
+import CONST from '../../constants';
 import classnames from 'classnames';
 
 class TodoList extends React.Component {

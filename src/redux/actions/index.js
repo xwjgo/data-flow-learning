@@ -1,4 +1,4 @@
-import CONST from '../constants';
+import CONST from '../../constants';
 const {ADD_TODO, TOGGLE_TODO, SET_FILTER_TYPE} = CONST.ACTION_TYPE;
 
 let nextTodoId = 0;
