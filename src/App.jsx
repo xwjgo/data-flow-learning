@@ -1,5 +1,6 @@
 import React from 'react';
 import ReduxTodo from './redux';
+import './less/app.less';
 
 class App extends React.Component {
     render () {
