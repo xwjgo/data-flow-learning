@@ -5,9 +5,11 @@ import CONST from '../constants';
 import classnames from 'classnames';
 
 class TodoList extends React.Component {
+
     handleToggleFinish = (id) => () => {
         this.props.toggleTodo(id);
     };
+
     render () {
         const {todoList} = this.props;
         return (

@@ -13,8 +13,8 @@ class ReduxTodo extends React.Component {
                 <div className="redux-todo">
                     <h1>Redux APP</h1>
                     <AddTodo/>
-                    <TodoList/>
                     <FilterTodo/>
+                    <TodoList/>
                 </div>
             </Provider>
         );

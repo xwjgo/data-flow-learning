@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux';
 import CONST from '../constants';
-const {ADD_TODO, TOGGLE_TODO, FILTER_TODO} = CONST.ACTION_TYPE;
+const {ADD_TODO, TOGGLE_TODO, SET_FILTER_TYPE} = CONST.ACTION_TYPE;
 const {ALL} = CONST.FILTER_TYPE;
 
 function todoList (state = [], action) {
@@ -30,7 +30,7 @@ function todoList (state = [], action) {
 }
 
 function filterType (state = ALL, action) {
-    if (action.type === FILTER_TODO) {
+    if (action.type === SET_FILTER_TYPE) {
          return action.filterType;
     }
     return state;

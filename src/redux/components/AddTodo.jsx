@@ -6,6 +6,7 @@ class AddTodo extends React.Component {
     state = {
         todoText: ''
     };
+
     handleAddTodo = () => {
         const {todoText} = this.state;
         if (todoText) {
@@ -15,16 +16,19 @@ class AddTodo extends React.Component {
             });
         }
     };
+
     handleChange = (e) => {
         this.setState({
             todoText: e.target.value.trim()
         });
     };
+
     handleKeyPress = (e) => {
         if (e.key === 'Enter') {
             this.handleAddTodo();
         }
     };
+
     render () {
         const {todoText} = this.state;
         return (
