@@ -7,10 +7,13 @@ class AddTodo extends React.Component {
         todoText: ''
     };
     handleAddTodo = () => {
-        this.props.addTodo(this.state.todoText);
-        this.setState({
-            todoText: ''
-        });
+        const {todoText} = this.state;
+        if (todoText) {
+            this.props.addTodo(todoText);
+            this.setState({
+                todoText: ''
+            });
+        }
     };
     handleChange = (e) => {
         this.setState({

@@ -1,23 +1,57 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {toggleTodo} from '../actions';
+import CONST from '../constants';
+import classnames from 'classnames';
 
 class TodoList extends React.Component {
+    handleToggleFinish = (id) => () => {
+        this.props.toggleTodo(id);
+    };
     render () {
         const {todoList} = this.props;
         return (
             <div className="comp-todo-list">
-                {todoList.map((t) => (
-                    <div className="todo-item" key={t.id}>{t.text}</div>
-                ))}
+                {todoList.map((t) => {
+                    const finishCls = t.finish ? 'finish' : '';
+                    return (
+                        <div
+                            className={classnames('todo-item', finishCls)}
+                            key={t.id}
+                            onClick={this.handleToggleFinish(t.id)}
+                        >
+                            {t.text}
+                        </div>
+                    );
+                })}
             </div>
         );
     }
 }
 
 function mapStateToProps (state) {
+    let todoList = [];
+    const {ALL, ACTIVE, FINISH} = CONST.FILTER_TYPE;
+    switch (state.filterType) {
+        case ALL:
+            todoList = state.todoList;
+            break;
+        case ACTIVE:
+            todoList = state.todoList.filter(t => !t.finish);
+            break;
+        case FINISH:
+            todoList = state.todoList.filter(t => t.finish);
+            break;
+        default:
+            break;
+    }
+    return { todoList };
+}
+
+function mapDispatchToProps (dispatch) {
     return {
-        todoList: state.todoList
+        toggleTodo: (id) => dispatch(toggleTodo(id))
     };
 }
 
-export default connect(mapStateToProps)(TodoList);
+export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
