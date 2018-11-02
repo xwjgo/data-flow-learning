@@ -1,8 +1,8 @@
 import React from 'react';
-import '../less/mobx.less';
 import AddTodo from './components/AddTodo';
 import FilterTodo from './components/FilterTodo';
 import TodoList from './components/TodoList';
+import '../less/mobx.less';
 
 class MobxTodo extends React.Component {
     render () {

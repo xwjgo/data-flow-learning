@@ -15,10 +15,12 @@ class TodoList extends React.Component {
         return (
             <div className="comp-todo-list">
                 {todoList.map((t) => {
-                    const finishCls = t.finish ? 'finish' : '';
+                    const itemCls = classnames('todo-item', {
+                        finish: t.finish
+                    });
                     return (
                         <div
-                            className={classnames('todo-item', finishCls)}
+                            className={itemCls}
                             key={t.id}
                             onClick={this.handleToggleFinish(t.id)}
                         >
