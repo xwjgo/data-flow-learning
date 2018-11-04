@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import {observable, action, configure} from 'mobx';
 import CONST from '../../constants';
 const {ALL} = CONST.FILTER_TYPE;
@@ -23,8 +24,8 @@ export default class TodoListModel {
 
     @action
     toggleTodo (id) {
-        const todo = this.todoList.filter(t => t.id === id);
-        todo.finish = !hodo.finish;
+        const todo = _.find(this.todoList, t => t.id === id);
+        todo.finish = !todo.finish;
     }
 
     @action

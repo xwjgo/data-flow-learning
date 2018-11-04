@@ -1,7 +1,7 @@
 import React from 'react';
-import {observer} from 'mobx-react';
-import store from '../store';
+import {observer, inject} from 'mobx-react';
 
+@inject('store')
 @observer
 class AddTodo extends React.Component {
     state = {
@@ -9,8 +9,10 @@ class AddTodo extends React.Component {
     };
 
     handleAddTodo = () => {
-        console.log('addTodoStore:', store);
-        store.addTodo(this.state.todoText);
+        this.props.store.addTodo(this.state.todoText);
+        this.setState({
+            todoText: ''
+        });
     };
 
     handleChange = (e) => {

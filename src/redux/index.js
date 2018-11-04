@@ -4,7 +4,6 @@ import store from './store';
 import AddTodo from './components/AddTodo';
 import TodoList from './components/TodoList';
 import FilterTodo from './components/FilterTodo';
-import '../less/redux.less';
 
 class ReduxTodo extends React.Component {
     render () {
