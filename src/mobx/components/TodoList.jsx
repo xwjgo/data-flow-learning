@@ -1,6 +1,8 @@
+import _ from 'lodash';
 import React from 'react';
 import classnames from 'classnames';
 import {observer, inject} from 'mobx-react';
+import CONST from '../../constants';
 
 @inject('store')
 @observer
@@ -10,10 +12,27 @@ class TodoList extends React.Component {
         this.props.store.toggleTodo(id);
     };
 
+    filterTodoList = () => {
+        const {store} = this.props;
+        const {ALL, ACTIVE, FINISH} = CONST.FILTER_TYPE;
+        switch (store.filterType) {
+            case ACTIVE:
+                return _.filter(store.todoList, (t) => !t.finish);
+            case FINISH:
+                return _.filter(store.todoList, (t) => t.finish);
+            case ALL:
+                return store.todoList;
+            default:
+                break;
+        }
+        return store.todoList;
+    };
+
     render () {
+        const todoList = this.filterTodoList();
         return (
             <div className="comp-todo-list">
-                {this.props.store.todoList.map((t) => {
+                {todoList.map((t) => {
                     const itemCls = classnames('todo-item', {
                         finish: t.finish
                     });
